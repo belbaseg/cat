@@ -1,0 +1,187 @@
+﻿<%@ Master Language="VB" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>Nepal Team</title>
+    <link href="Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 200px;
+            height: 112px;
+        }
+        .newStyle1 {
+            font-weight: bold;
+            text-align: center;
+        }
+        .auto-style3 {
+            width: 161px;
+        }
+        .auto-style4 {
+            font-size: small;
+            color: #888888;
+            font-style: italic;
+        }
+        #MyMenu2 {
+            width: 200px;
+            height: 34px;
+        }
+        .auto-style5 {
+            width: 77%;
+            z-index: -1;
+            left: 239px;
+            top: -50px;
+            position: relative;
+            height: 155px;
+        }
+        .auto-style6 {
+            width: 409px;
+        }
+        .auto-style7 {
+            height: 32px;
+        }
+        .auto-style8 {
+            width: 409px;
+            height: 32px;
+        }
+        .auto-style9 {
+            height: 50px;
+        }
+        .auto-style10 {
+            width: 409px;
+            height: 50px;
+        }
+        .auto-style11 {
+            height: 32px;
+            width: 150px;
+        }
+        .auto-style12 {
+            width: 150px;
+        }
+        .auto-style13 {
+            height: 50px;
+            width: 150px;
+        }
+        .auto-style14 {
+            width: 54px;
+            height: 65px;
+        }
+    </style>
+    <script type="text/javascript" src="./MyMenu1/MyMenu1.js"></script>
+     
+ 
+</head>
+<body style="align-content:center"> <Table style="align-content: center; height: 135px;">
+    <tr><td class="auto-style3">
+
+
+        </td>
+        <td>
+    <img alt="CAN-International" class="auto-style1" src="Logo_2_d200.png" /></td><td>
+    <h1 class="DDMainHeader" style="text-align: center; width: 259px; height: 69px;"><a class="wz-link internal-link" data-attached-link="{&quot;type&quot;:&quot;Pages&quot;,&quot;url&quot;:&quot;1403784258535&quot;,&quot;title&quot;:&quot;HOME&quot;}" href="http://can-international.org/" style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0); outline: 0px; text-decoration: none; color: inherit;"><span style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0); font-size: 19px;"><span style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0); letter-spacing: 0px;"><strong style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0);">​</strong></span><span style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0); font-size: 22px;"><span style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0); letter-spacing: 0px;"><strong style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0);">Communities and Nature International​</strong></span></span></span></a><br style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0);" />
+        <a class="internal-link" data-attached-link="{&quot;type&quot;:&quot;Pages&quot;,&quot;url&quot;:&quot;1403784258535&quot;,&quot;title&quot;:&quot;HOME&quot;}" href="http://can-international.org/" style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0);"><span class="theme-text-color-4-3" style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0); color: rgb(74, 74, 74);"></span></a><a class="wz-link internal-link" data-attached-link="{&quot;type&quot;:&quot;Pages&quot;,&quot;url&quot;:&quot;1403784258535&quot;,&quot;title&quot;:&quot;HOME&quot;}" href="http://can-international.org/" style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0); text-decoration: none; color: inherit;"><span style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0); font-size: 21px;"><span style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0); letter-spacing: 0px;"><strong style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0);">(CAN International)</strong></span></span></a></h1>
+   </td>
+        <td>
+            <div id="MyMenu1" align="right" style="z-index: 1; width: 359px; height: 52px;"></div>
+        </td>
+             </tr></Table> <br />
+    <div class="DDNavigation" style="vertical-align: middle; left: 0px; width: 25px;">
+        <a runat="server" href="http://can-international.org"><img alt="Back to home page" runat="server" src="DynamicData/Content/Images/back.gif" /></a>
+    </div>
+
+    <form id="form1" runat="server">
+    
+  
+       
+ <asp:AccessDataSource ID="AccessDataSource1" runat="server" DataFile="App_Data\my_products.mdb" DeleteCommand="DELETE FROM `Menu1` WHERE `id` = ?" InsertCommand="INSERT INTO `Menu1` (`id`, `name`, `seq`, `pmenuitemid`, `url`, `contentid`, `openin`, `productmatch`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)" SelectCommand="SELECT `id`, `name`, `seq`, `pmenuitemid`, `url`, `contentid`, `openin`, `productmatch` FROM `Menu1`" UpdateCommand="UPDATE `Menu1` SET `name` = ?, `seq` = ?, `pmenuitemid` = ?, `url` = ?, `contentid` = ?, `openin` = ?, `productmatch` = ? WHERE `id` = ?">
+        <DeleteParameters>
+            <asp:Parameter Name="id" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="id" Type="Int32" />
+            <asp:Parameter Name="name" Type="String" />
+            <asp:Parameter Name="seq" Type="Int32" />
+            <asp:Parameter Name="pmenuitemid" Type="Int32" />
+            <asp:Parameter Name="url" Type="String" />
+            <asp:Parameter Name="contentid" Type="Int32" />
+            <asp:Parameter Name="openin" Type="String" />
+            <asp:Parameter Name="productmatch" Type="String" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="name" Type="String" />
+            <asp:Parameter Name="seq" Type="Int32" />
+            <asp:Parameter Name="pmenuitemid" Type="Int32" />
+            <asp:Parameter Name="url" Type="String" />
+            <asp:Parameter Name="contentid" Type="Int32" />
+            <asp:Parameter Name="openin" Type="String" />
+            <asp:Parameter Name="productmatch" Type="String" />
+            <asp:Parameter Name="id" Type="Int32" />
+        </UpdateParameters>
+</asp:AccessDataSource>
+
+    
+       
+                <table class="auto-style5" style="border: 1px dotted #009900; text-align: right; ">
+                    <tr>
+                        <td class="auto-style7"></td>
+                        <td class="auto-style11"></td>
+                        <td class="auto-style8" style="vertical-align: bottom; font-size: xx-small;">&nbsp;</td>
+                        <td class="auto-style7" style="text-align: left"><br />
+                        </td>
+                        <td class="auto-style7"></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td class="auto-style12">&nbsp;</td>
+                        <td class="auto-style6" style="vertical-align: bottom; font-size: xx-small;">&nbsp;</td>
+                        <td style="text-align: left">
+                            &nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style9"></td>
+                        <td class="auto-style13"></td>
+                        <td class="auto-style10" style="vertical-align: middle; font-size: xx-small;">
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </td>
+                        <td class="auto-style9" style="text-align: left">
+                            </td>
+                        <td class="auto-style9"></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td ></td>
+                        <td class="auto-style6" style="vertical-align: top; font-size: xx-small;">&nbsp;</td>
+                        <td style="text-align: left">
+                            &nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td style="vertical-align: middle; font-family: 'pagoda SF'; color: #0026ff; text-align: right;">
+                           <a href="https://www.facebook.com/canintl16/"><img alt="can-international" class="auto-style14" src="fb.png" /></a> </td>
+                        <td style="text-align: left; color: #999999; font-style: italic;">
+                           
+                            Follow us on social media for all out latest news, updates and event information 
+                        </td>
+                        <td style="text-align: right">
+                            &nbsp;</td>
+                        <td>
+                           
+                        </td>
+                    </tr>
+                    
+        </table>
+       
+                </form>
+    
+    <p style="text-align: center; background-repeat: inherit; background-image: url('bg.jpeg');">
+        <a href="http://can-international.org/"><span class="auto-style4">Communities and Nature International is a charity registered in England and Wales (No. 1166983).<br />© Communities and Nature International<br /> 2015</span></a><span class="auto-style4"> </span></p>
+       
+    </body>
+</html>

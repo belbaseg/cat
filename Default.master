@@ -1,0 +1,237 @@
+﻿<%@ Master Language="VB" CodeFile="./Default.master.vb" Inherits="_Default" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Nepali.team</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+</script>
+<script type="text/javascript" language="javascript">
+    $(document).ready(function() {
+        ShowImagePreview();
+    });
+    // Configuration of the x and y offsets
+    function ShowImagePreview() {
+        xOffset = 250;
+        yOffset = 40;
+
+        $("a.preview").hover(function(e) {
+            this.t = this.title;
+            this.title = "";
+            var c = (this.t != "") ? "<br/>" + this.t : "";
+            $("body").append("<p id='preview'><img src='" + this.href + "' alt='Image preview' />" + c + "</p>");
+            $("#preview")
+            .css("top", (e.pageY - xOffset) + "px")
+            .css("left", (e.pageX + yOffset) + "px")
+            .fadeIn("slow");
+        },
+
+    function() {
+        this.title = this.t;
+        $("#preview").remove();
+    });
+
+        $("a.preview").mousemove(function(e) {
+            $("#preview")
+            .css("top", (e.pageY - xOffset) + "px")
+            .css("left", (e.pageX + yOffset) + "px");
+        });
+    };
+
+</script>  
+<script type="text/javascript" src="./MyMenu1/MyMenu1.js"></script>
+ 
+<asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+   <style type="text/css">
+#preview{
+	position:absolute;
+	border:3px solid #ccc;
+	background:#333;
+	padding:5px;
+	display:none;
+	color:#fff;
+	box-shadow: 4px 4px 3px rgba(103, 115, 130, 1);
+}
+</style> 
+<style type="text/css">
+        .style2
+        {
+            background-color: #FFFFFF;
+        }
+        .style13
+        {
+            padding: 0;
+            background-color: #FFFFFF;
+                height: 85px;
+        }
+        .MsoNormal
+        {
+            width: 576px;
+            text-align: center;
+            background-color: #996633;
+            height: 3px;
+        }
+        #form1
+        {
+            text-align: center;
+        width: 150px;
+        height: 1px;
+    }
+        .style30
+        {
+            text-align: right;
+            background-color: #FFFFFF;
+        }
+        .style31
+        {
+            text-align: left;
+        }
+        .style32
+        {}
+        .style33
+        {
+            width: 100%;
+        }
+        .style34
+        {
+            width: 263px;
+            text-align: left;
+        background-color: #CCCCCC;
+    }
+        .style37
+        {
+            text-align: right;
+        }
+        #toplinks
+        {
+            text-align: right;
+            width: 793px;
+        }
+        </style>
+</head>
+<body style="text-align: center">
+
+    <form id="form1" runat="server">
+        <div id="toplinks" class="hide-for-print">
+
+  </div>
+            <table align="center">
+                <tr>
+                    <td bgcolor="White" colspan="2"  
+                        valign="top" >
+
+
+                        <table cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td class="style30">
+                                    
+                                     <div class="style32">
+                                         <table class="style33">
+                                             <tr>
+
+                                                 <td valign="top" align="right">
+                                    <div id="MyMenu1"></div>
+                                   
+                                                 
+</td>
+                                                 <td align="left" >
+<div id="MyMenu2"></div>
+                                                     &nbsp;<br /> </td>
+                                             </tr>
+                                         </table>
+                                     </div>
+                                     <div class="style32" align="left">
+
+                                         <hr style="width: 782px" />
+
+                                     </div>
+                                    
+                                    </td>
+                            </tr>
+                        </table>
+                    </td>
+               
+                    <td 
+                        valign="top" rowspan="4" 
+                        style="border-style: none; background-color: #FFFFFF;" class="style37">
+<a href="http://flyktm.com">
+            <img alt="www.flyktm.com" src="flykathmandu.gif" 
+                style="width: 173px; height: 73px" /></a>
+                                     <br />
+
+                    </td>
+               
+</tr>
+                <tr>
+                    <td align="left" valign="top" style="text-align: center">
+                        <asp:AccessDataSource ID="AccessDataSource1" runat="server" 
+                            DataFile="DB/book.mdb" 
+                            
+                            SelectCommand="SELECT * FROM [Subject] WHERE ([Subject] NOT LIKE '%' + ? + '%')">
+                            <SelectParameters>
+                                <asp:Parameter DefaultValue="0" Name="Subject" Type="String" />
+                            </SelectParameters>
+                        </asp:AccessDataSource>
+<asp:AccessDataSource ID="AccessDataSource13" runat="server" 
+    DataFile="DB/book.mdb" 
+    SelectCommand="SELECT Products.ID, Products.[List Price] AS List_Price, Products.[Product Name] AS Product_Name, BookName.BookID, BookName.NameofBook FROM (Products INNER JOIN BookName ON Products.[Product Name] = BookName.BookID)">
+</asp:AccessDataSource>
+
+                        <asp:AccessDataSource ID="AccessDataSource2" runat="server" 
+                            DataFile="DB/book.mdb" 
+                            
+                            
+                            
+                            SelectCommand="SELECT [WriterName], [ID] FROM [Writer] WHERE ([WriterName] IS NOT NULL)">
+                        </asp:AccessDataSource>
+                        <hr style="background-color: #0000FF" />
+                        <br />
+                        <br />
+                        <br />
+                        <asp:AccessDataSource ID="AccessDataSource14" runat="server" 
+                            DataFile="DB/book.mdb" 
+                            
+                            SelectCommand="SELECT Comment.ID, Comment.Comment, Comment.Name, BookName.NameofBook, BookName.BookID, Comment.CommentID, Products.[Product Name], Products.ProductID, Products.ID AS Expr1, Products.[Image] FROM ((BookName INNER JOIN Products ON BookName.BookID = Products.[Product Name]) INNER JOIN Comment ON Products.ID = Comment.ID) WHERE (Comment.Comment IS NOT NULL)">
+                        </asp:AccessDataSource>
+                    </td>
+                    <td rowspan="2" bgcolor="#999999" class="style2" valign="top">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                            <p style="width: 616px; vertical-align: top; z-index: -1; text-align: left;">
+                               
+</p>
+                        </asp:ContentPlaceHolder>
+<dl style="width: 633px; height: 74px; text-align: center; background-color: #66FF33">
+                            <dd>
+                                <p class="MsoNormal">
+                                    &nbsp;</p>
+                            </dd>
+                        </dl>
+                    </td>
+                </tr>
+                
+                    
+                      
+                    
+               
+                
+           
+                                
+                                <asp:DataList ID="dtlist" runat="server" RepeatColumns="1" CellPadding="1" 
+                                        UseAccessibleHeader="True" Font-Bold="False" Font-Italic="False" 
+                                        Font-Overline="False" Font-Strikeout="False" Font-Underline="False" 
+                                        ForeColor="Blue" SelectedIndex="0">
+<ItemTemplate>
+<asp:HyperLink ID="HyperLink1" class="preview" ToolTip='<%#Bind("Name") %>' NavigateUrl='<%# Bind("Name", "UploadedUserFiles/{0}") %>' runat="server">
+<asp:Image Width="10" ID="Image1" ImageUrl='<%# Bind("Name", "UploadedUserFiles/{0}") %>' runat="server" />
+</asp:HyperLink>
+</ItemTemplate>
+<ItemStyle BorderColor="Brown" BorderStyle="dotted" BorderWidth="3px" HorizontalAlign="Center"
+VerticalAlign="Bottom" BackColor="Black" Font-Bold="False" Font-Italic="False" Font-Overline="False" 
+                                        Font-Strikeout="False" Font-Underline="False" ForeColor="Black" />
+</asp:DataList>
+ </form> 
+    </body>    
+   
+

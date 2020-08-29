@@ -1,0 +1,41 @@
+﻿<%@ Master Language="VB" %>
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta charset="utf-8" />    
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server" />
+    <script type="text/javascript" src="./MyMenu1/MyMenu1.js"></script>
+    <style type="text/css">
+        .auto-style1 {
+            width: 163px;
+            height: 139px;
+        }
+        .auto-style2 {
+            width: 499px;
+        }
+        .auto-style3 {
+            width: 1200px;
+            text-align: center;
+        }
+        .auto-style4 {
+            position: relative;
+            left: 0px;
+            top: 0px;
+            width: 119px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body><table><tr><td><img src="Shareholders.jpg" class="auto-style4" /><td class="auto-style3">
+    <div id="MyMenu1">
+    </div>
+    </td></tr></table>
+ <table><tr><td class="auto-style2">   <form id="form1" runat="server">
+    <div><td class="auto-style1">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server" /></td>
+    </div>
+    </form></td></tr></table>
+</body>
+</html>

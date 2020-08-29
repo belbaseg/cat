@@ -1,0 +1,224 @@
+﻿<%@ Master Language="VB" CodeFile="Site.master.vb" Inherits="Site" %>
+
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>Catering Team</title>
+    <link href="Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .newStyle1 {
+            font-weight: bold;
+            text-align: center;
+        }
+        #MyMenu2 {
+            width: 200px;
+            height: 34px;
+        }
+                
+
+        .auto-style30 {
+            width: 108px;
+            height: 84px;
+            position: absolute;
+            top: 64px;
+            left: 38px;
+            z-index: 1;
+        }
+        .auto-style35 {
+            height: 101px;
+            width: 119px;
+        }
+        .auto-style39 {
+            width: 10px;
+        }
+        .auto-style41 {
+            color: #999966;
+        }
+        .auto-style43 {
+            width: 1115px;
+            background-color: #000000;
+        }
+        .auto-style44 {
+            color: #FFFFFF;
+        }
+        .auto-style46 {
+            width: 167px;
+            height: 28px;
+            position: absolute;
+            top: 15px;
+            left: 39px;
+            z-index: 1;
+        }
+    </style>
+   
+     
+ 
+</head>
+<body> 
+
+    <form id="form1" runat="server" >
+         <div style="vertical-align: top; text-align: left" class="auto-style46">
+
+    &nbsp;<a href="http://cateringpal.com" title=""><img src="home.jpg" border="0" height="20" /></a> |    <a href="http://shopsite.easycgi.com/ss11.2/sc/order.cgi?storeid=*14894f27aac4408718c41102&amp;function=show" title="Cateringpal - Shopping Cart"><img src="crt.png" border="0" /></a>
+  |<a href="http://cateringpal.com/contactus.aspx" title=""><img src="contact.jpg" border="0" height="20" /></a></div>
+        <Table style= "vertical-align: top;" align="center" >
+    <tr><td style="vertical-align: top" class="auto-style35"><img alt="Catering Pal" src="logo.png" class="auto-style30" />
+        </td>
+        
+        <td style="vertical-align: top" class="auto-style39">
+            
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+           
+                
+        </asp:ContentPlaceHolder>
+            
+
+                        
+
+    
+  
+       
+ 
+ <asp:AccessDataSource ID="AccessDataSource1" runat="server" DataFile="App_Data\my_products.mdb" SelectCommand="SELECT [categoryid], [catdescription] FROM [categories]">
+</asp:AccessDataSource>
+
+    
+       
+                
+        </td> 
+             </tr> 
+              
+        </Table>  
+        <table align="center" class="auto-style43"><tr><td style="vertical-align: top">
+
+                   <em>
+
+                   <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="categoryid" DataSourceID="AccessDataSource1" ForeColor="#333333" GridLines="None" PageSize="6" ShowHeader="False" CssClass="auto-style44" >
+                    <AlternatingRowStyle BackColor="White" ForeColor="White" />
+                    <Columns>
+                        <asp:BoundField DataField="categoryid" HeaderText="categoryid" InsertVisible="False" ReadOnly="True" SortExpression="categoryid" Visible="False" >
+                        <ItemStyle ForeColor="White" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="catdescription" HeaderText="catdescription" SortExpression="catdescription" Visible="False" />
+                        <asp:HyperLinkField DataNavigateUrlFields="catdescription,categoryid" DataNavigateUrlFormatString="category.aspx?catid={0}&amp;{1}" DataTextField="catdescription" DataTextFormatString="{0}  »" >
+                        <ControlStyle ForeColor="White" Font-Underline="False" />
+                        <ItemStyle ForeColor="White" BackColor="Black" Font-Underline="False" />
+                        </asp:HyperLinkField>
+                    </Columns>
+                    <EditRowStyle BackColor="#999999" />
+                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <PagerSettings Visible="False" />
+                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="Black" BorderStyle="None" ForeColor="White" />
+                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                </asp:GridView></em></td><td style="vertical-align: top"><asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="categoryid" DataSourceID="AccessDataSource1" ForeColor="#333333" GridLines="None" PageSize="6" ShowHeader="False" CssClass="auto-style44" TabIndex="2" PageIndex="1" >
+                    <AlternatingRowStyle BackColor="White" ForeColor="White" />
+                    <Columns>
+                        <asp:BoundField DataField="categoryid" HeaderText="categoryid" InsertVisible="False" ReadOnly="True" SortExpression="categoryid" Visible="False" >
+                        <ItemStyle ForeColor="White" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="catdescription" HeaderText="catdescription" SortExpression="catdescription" Visible="False" />
+                        <asp:HyperLinkField DataNavigateUrlFields="catdescription,categoryid" DataNavigateUrlFormatString="category.aspx?catid={0}&amp;{1}" DataTextField="catdescription" DataTextFormatString="{0}  »" >
+                        <ControlStyle ForeColor="White" Font-Underline="False" />
+                        <ItemStyle ForeColor="White" BackColor="Black" />
+                        </asp:HyperLinkField>
+                    </Columns>
+                    <EditRowStyle BackColor="#999999" />
+                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <PagerSettings Visible="False" />
+                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="Black" BorderStyle="None" ForeColor="White" />
+                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                </asp:GridView></td><td style="vertical-align: top"><asp:GridView ID="GridView3" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="categoryid" DataSourceID="AccessDataSource1" ForeColor="#333333" GridLines="None" PageSize="6" ShowHeader="False" CssClass="auto-style44" TabIndex="3" PageIndex="2" >
+                    <AlternatingRowStyle BackColor="White" ForeColor="White" />
+                    <Columns>
+                        <asp:BoundField DataField="categoryid" HeaderText="categoryid" InsertVisible="False" ReadOnly="True" SortExpression="categoryid" Visible="False" >
+                        <ItemStyle ForeColor="White" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="catdescription" HeaderText="catdescription" SortExpression="catdescription" Visible="False" />
+                        <asp:HyperLinkField DataNavigateUrlFields="catdescription,categoryid" DataNavigateUrlFormatString="category.aspx?catid={0}&amp;{1}" DataTextField="catdescription" DataTextFormatString="{0}  »" >
+                        <ControlStyle ForeColor="White" Font-Underline="False" />
+                        <ItemStyle ForeColor="White" BackColor="Black" />
+                        </asp:HyperLinkField>
+                    </Columns>
+                    <EditRowStyle BackColor="#999999" />
+                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <PagerSettings Visible="False" />
+                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="Black" BorderStyle="None" ForeColor="White" />
+                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                </asp:GridView></td><td style="vertical-align: top"><asp:GridView ID="GridView4" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="categoryid" DataSourceID="AccessDataSource1" ForeColor="#333333" GridLines="None" PageSize="4" ShowHeader="False" CssClass="auto-style44" TabIndex="4" PageIndex="3" Visible="False" >
+                    <AlternatingRowStyle BackColor="White" ForeColor="White" />
+                    <Columns>
+                        <asp:BoundField DataField="categoryid" HeaderText="categoryid" InsertVisible="False" ReadOnly="True" SortExpression="categoryid" Visible="False" >
+                        <ItemStyle ForeColor="White" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="catdescription" HeaderText="catdescription" SortExpression="catdescription" Visible="False" />
+                        <asp:HyperLinkField DataNavigateUrlFields="catdescription,categoryid" DataNavigateUrlFormatString="category.aspx?catid={0}&amp;{1}" DataTextField="catdescription" DataTextFormatString="{0}  »" >
+                        <ControlStyle ForeColor="White" Font-Underline="False" />
+                        <ItemStyle ForeColor="White" BackColor="Black" />
+                        </asp:HyperLinkField>
+                    </Columns>
+                    <EditRowStyle BackColor="#999999" />
+                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <PagerSettings Visible="False" />
+                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="Black" BorderStyle="None" ForeColor="White" />
+                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                </asp:GridView></td><td style="vertical-align: top"><asp:GridView ID="GridView5" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="categoryid" DataSourceID="AccessDataSource1" ForeColor="#333333" GridLines="None" PageSize="4" ShowHeader="False" CssClass="auto-style44" PageIndex="4" TabIndex="5" Visible="False" >
+                    <AlternatingRowStyle BackColor="White" ForeColor="White" />
+                    <Columns>
+                        <asp:BoundField DataField="categoryid" HeaderText="categoryid" InsertVisible="False" ReadOnly="True" SortExpression="categoryid" Visible="False" >
+                        <ItemStyle ForeColor="White" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="catdescription" HeaderText="catdescription" SortExpression="catdescription" Visible="False" />
+                        <asp:HyperLinkField DataNavigateUrlFields="catdescription,categoryid" DataNavigateUrlFormatString="category.aspx?catid={0}&amp;{1}" DataTextField="catdescription" DataTextFormatString="{0}  »" >
+                        <ControlStyle ForeColor="White" Font-Underline="False" />
+                        <ItemStyle ForeColor="White" BackColor="Black" Font-Underline="True" />
+                        </asp:HyperLinkField>
+                    </Columns>
+                    <EditRowStyle BackColor="#999999" />
+                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <PagerSettings Visible="False" />
+                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="Black" BorderStyle="None" ForeColor="White" />
+                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                </asp:GridView></td></tr>
+           
+        </table>
+      <p style="color: #CCCCCC; background-image: url('/bg.jpeg'); text-align: center;">
+           <a href="http://cateringpal.com"> <span class="auto-style41">© Catering Pal</span> </a>  <a href="http://shopsite.easycgi.com/ss12.3/sc/image.cgi?key=security_redirect&storeid=*14894f27aac4408718c41102&lang=en-US" target="_blank"><img src="http://shopsite.easycgi.com/ss12.3/sc/image.cgi?security=yes&storeid=*14894f27aac4408718c41102" border="0"></a>
+</p>
+    </form>
+    
+    </body>
+</html>
+
